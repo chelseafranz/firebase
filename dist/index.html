@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>firebase</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body ng-app="Items">
+
+    <div class="hero-unit">
+      <h1>Angular & Firebase</h1>
+   <div class="container" ng-controller="ItemsList">
+    {{title}}
+    <ul>
+        <li ng-repeat="item in items">
+            {{item.name}} is {{item.size}}
+            <button ng-click="deleteItem(item)">x</button>
+        </li>
+    </ul>
+    <hr/>
+
+    <h5>Add New Item</h5>
+
+    <form id='addForm' ng-submit='addItem(item)'>
+<input type="text" ng-model="item.name" placeholder="name"></input>
+<input type="text" ng-model="item.size" placeholder="size"></input>
+<button>Add Item</button>
+    </form>
+</div>
+
+<div class="usersStuff" ng-controller="UserController">
+    <form id="userForm">
+        <input type="email" ng-model="user.email" placeholder="email"></input>
+        <input type="password" ng-model="user.password" placeholder="password"></input>
+        <button ng-click="register(user)">Register</button>
+        <button ng-click="login(user)">Login</button>
+
+    </form>
+    <a href="#" ng-click="checkUser()">Check</a>
+</div>
+
+    
+    </div>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="https://cdn.firebase.com/js/client/2.0.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
